@@ -1,0 +1,258 @@
+{
+  "id": "notification:-6910632418444651678",
+  "type": "Notification",
+  "subscriptionId": "urn:ngsi-ld:Subscription:testJMA",
+  "notifiedAt": "2024-05-06T16:09:55.985000Z",
+  "data": [
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 0, "observedAt": "2024-05-06T16:09:55.233Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 1, "observedAt": "2024-05-06T16:08:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 2, "observedAt": "2024-05-06T16:07:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 3, "observedAt": "2024-05-06T16:06:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 4, "observedAt": "2024-05-06T16:05:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 5, "observedAt": "2024-05-06T16:04:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 6, "observedAt": "2024-05-06T16:03:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 7, "observedAt": "2024-05-06T16:02:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 8, "observedAt": "2024-05-06T16:01:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 9, "observedAt": "2024-05-06T16:00:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 10, "observedAt": "2024-05-06T15:59:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 11, "observedAt": "2024-05-06T15:58:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 12, "observedAt": "2024-05-06T15:57:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 13, "observedAt": "2024-05-06T15:56:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 14, "observedAt": "2024-05-06T15:55:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 15, "observedAt": "2024-05-06T15:54:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 16, "observedAt": "2024-05-06T15:53:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 17, "observedAt": "2024-05-06T15:52:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 18, "observedAt": "2024-05-06T15:51:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 19, "observedAt": "2024-05-06T15:50:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 20, "observedAt": "2024-05-06T15:49:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 21, "observedAt": "2024-05-06T15:48:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 22, "observedAt": "2024-05-06T15:47:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 23, "observedAt": "2024-05-06T15:46:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 24, "observedAt": "2024-05-06T15:45:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 25, "observedAt": "2024-05-06T15:44:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 26, "observedAt": "2024-05-06T15:43:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 27, "observedAt": "2024-05-06T15:42:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 28, "observedAt": "2024-05-06T15:41:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 29, "observedAt": "2024-05-06T15:40:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 30, "observedAt": "2024-05-06T15:39:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 31, "observedAt": "2024-05-06T15:38:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 32, "observedAt": "2024-05-06T15:37:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 33, "observedAt": "2024-05-06T15:36:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 34, "observedAt": "2024-05-06T15:35:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 35, "observedAt": "2024-05-06T15:34:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 36, "observedAt": "2024-05-06T15:33:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 37, "observedAt": "2024-05-06T15:32:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 38, "observedAt": "2024-05-06T15:31:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 39, "observedAt": "2024-05-06T15:30:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 40, "observedAt": "2024-05-06T15:29:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 41, "observedAt": "2024-05-06T15:28:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 42, "observedAt": "2024-05-06T15:27:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 43, "observedAt": "2024-05-06T15:26:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 44, "observedAt": "2024-05-06T15:25:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 45, "observedAt": "2024-05-06T15:24:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 46, "observedAt": "2024-05-06T15:23:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 47, "observedAt": "2024-05-06T15:22:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 48, "observedAt": "2024-05-06T15:21:55.234Z" }
+    },
+    {
+      "id": "urn:ngsi-ld:Example:ExampleJM151",
+      "type": "Example",
+      "someAttribute": { "value": 49, "observedAt": "2024-05-06T15:20:55.234Z" }
+    }
+  ]
+}
