@@ -4,6 +4,11 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
+import { AmplifyProvider } from "@/components/auth-provider";
+import { Amplify } from "aws-amplify";
+import config from "@/amplify_outputs.json";
+
+Amplify.configure(config, { ssr: true });
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,18 +25,23 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="fixed z-30 w-full mt-3">
-            <Header />
-          </div>
-          <div className="absolute mt-52 w-full">{children}</div>
-          <Toaster/>
-        </ThemeProvider>
+        
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <AmplifyProvider>
+            <div className="fixed z-30 w-full mt-3">
+              <Header />
+            </div>
+            <div className="absolute mt-52 w-full">{children}</div>
+
+            <Toaster />
+            </AmplifyProvider>
+          </ThemeProvider>
+
       </body>
     </html>
   );

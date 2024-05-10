@@ -8,12 +8,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import LatestMessage from "@/components/LatestMessage";
 
 export default function Home() {
   return (
     <main className="min-h-screen container mx-auto  ">
-      <div className="flex flex-col items-center justify-between  gap-8  " >
-      {notifications.data.map((notification) => {
+      <div className="flex flex-col items-center justify-between  gap-8  ">
+        <LatestMessage />
+        {/* {notifications.data.map((notification) => {
         return (
           <Card className="bg-zinc-100 dark:bg-black" key={notification.id}>
             <CardHeader>
@@ -25,7 +27,7 @@ export default function Home() {
             </CardContent>
           </Card>
         );
-      })}
+      })} */}
       </div>
     </main>
   );
