@@ -22,12 +22,7 @@ function Header() {
             <h1 className="font-semibold text-3xl">Garnet Management</h1>
           </div>
           <div className="flex justify-center items-center gap-8">
-            <Link
-              className="underline border p-5 rounded-xl bg-slate-100 dark:bg-black"
-              href="/Notifications"
-            >
-              Real Time Notifications
-            </Link>
+           
             <Link
               className="underline border p-5 rounded-xl bg-slate-100  dark:bg-black"
               href="/history"

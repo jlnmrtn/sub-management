@@ -4,7 +4,6 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -30,6 +29,8 @@ export default function LatestMessage({subscription}:{subscription: Subscription
   const [toggleChat, setToggleChat] = useState(true);
   const [message, setMessage] = useState<IMessage[]>([]);
   let subname: string = "+"
+
+  console.log(subscription)
 
   if(subscription) {
     subname = subscription.id.split(":")[3]

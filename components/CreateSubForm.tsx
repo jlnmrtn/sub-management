@@ -21,8 +21,7 @@ import { Button } from "./ui/button";
 export default function CreateSubForm() {
   const [message, action] = useFormState(createSub, null);
   const { toast } = useToast();
-  const [open, setOpen] = useState(false);
-
+ 
   useEffect(() => {
     if (message) {
       toast({
@@ -72,6 +71,18 @@ export default function CreateSubForm() {
                 Entities
               </Label>
               <Input id="entities" name="entities" className="col-span-3" />
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="watchedattributes" className="text-right">
+                Watched Attributes
+              </Label>
+              <Input id="watchedattributes" name="watchedattributes" className="col-span-3" />
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="query" className="text-right">
+                Query
+              </Label>
+              <Input id="query" name="query" className="col-span-3" />
             </div>
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="endpoint" className="text-right">

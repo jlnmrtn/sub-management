@@ -33,6 +33,7 @@ export interface Subscription {
   jsonldContext: string;
   entities?: string;
   q?: string;
+  watchedattributes?: string,
   notification: string;
   timesFailed: number;
   timesSent: number;
@@ -43,7 +44,7 @@ async function fetchSub() {
     `${process.env.CONTEXT_BROKER_URL}/ngsi-ld/v1/subscriptions`
   );
   const subscriptions = await response.json();
-  return subscriptions;
+  return subscriptions.filter((s: Subscription) => s.id != "urn:ngsi-ld:Subscription:GarnetDataLakeSub-DoNotDelete" );
 }
 
 async function Subscriptions() {
@@ -86,7 +87,10 @@ async function Subscriptions() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className=" overflow-hidden border-x-2 flex-1">
+                  <p>Description: {subscription.description}</p>
                   <p>Entities: {JSON.stringify(subscription.entities)}</p>
+                  <p>Query: {JSON.stringify(subscription.q)}</p>
+                  <p>WatchedAttributes: {JSON.stringify(subscription.watchedattributes)}</p>
                   <p>Times Failed: {subscription.timesFailed}</p>
                   <p>Times Sent: {subscription.timesSent}</p>
                   <p>Status: {subscription.status}</p>

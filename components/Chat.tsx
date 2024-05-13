@@ -2,9 +2,6 @@
 
 import { useChat } from "ai/react";
 import { IMessage } from "./LatestMessage";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
 import { Card } from "./ui/card";
 import { useEffect, useRef } from "react";
 import { Subscription } from "@/app/Subscriptions/page";
@@ -27,7 +24,7 @@ export default function Chat({ message, subscription }: { message: IMessage[], s
 
   useEffect(() => {
     JSONstrmessage = JSONstrmessage + JSON.stringify(message);
-    setInput(`Based on the following context which represents a subscription rule and related notifications. Don't describe the subscription rule itsel but take into context for the notifcations. describe what is going on, anomaly, correlation...  SUBSCRIPTIONS/RULES:${JSONstrsubscription} NOTIFICATIONS:${JSONstrmessage}`);
+    setInput(`Based on the following context which represents a subscription rule and related notifications. SUBSCRIPTIONS/RULES:${JSONstrsubscription} NOTIFICATIONS:${JSONstrmessage}.  Don't describe the subscription rule itself but take into context for the notifcations. Find out what is going on, anomaly, correlation. But don't describe the rule definition.` );
     buttonRef?.current?.click();
   },[setInput,  message]);
 
@@ -41,7 +38,7 @@ export default function Chat({ message, subscription }: { message: IMessage[], s
   }, [input]);
 
   return (
-    <div className="mx-auto w-full flex flex-col items-center ">
+    <div className="mx-auto w-full flex flex-col items-center">
       <div className="flex flex-col gap-5" >
         {messages.map((m) => (
           <div key={m.id}>
