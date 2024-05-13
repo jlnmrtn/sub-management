@@ -1,7 +1,5 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import notifications from "../data.json";
 import {
   Card,
   CardContent,
@@ -14,6 +12,7 @@ import {
 import { useState, useEffect } from "react";
 import { pubsub } from "../utils/pubsub";
 import Chat from "./Chat";
+import { Subscription } from "@/app/Subscriptions/page";
 
 type INotification = {
   id: string;
@@ -27,13 +26,20 @@ export type IMessage = {
   id: string;
 };
 
-export default function LatestMessage() {
-  const [toggleChat, setToggleChat] = useState(false);
+export default function LatestMessage({subscription}:{subscription: Subscription | undefined}) {
+  const [toggleChat, setToggleChat] = useState(true);
   const [message, setMessage] = useState<IMessage[]>([]);
+  let subname: string = "+"
 
+  if(subscription) {
+    subname = subscription.id.split(":")[3]
+  }
+  
+  
   useEffect(() => {
+    
     const sub_topic = pubsub
-      .subscribe({ topics: ["garnet/subscriptions/+"] })
+      .subscribe({ topics: [`garnet/subscriptions/${subname}`] })
       .subscribe({
         next: (data) => {
           const notification = data as INotification;
@@ -53,23 +59,27 @@ export default function LatestMessage() {
 
   return (
     <>
-      {message.length > 0 && (
+      {/* {message.length > 0 && (
         <Button onClick={() => setToggleChat(!toggleChat)}>Toggle Chat</Button>
-      )}
-      {toggleChat && <Chat message={message} />}
-      {message.map((m, i) => {
-        return (
-          <Card className="bg-zinc-100 dark:bg-black" key={i}>
-            <CardHeader>
-              <CardTitle>{m.id}</CardTitle>
-              <CardDescription>Message Content</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <p>{JSON.stringify(m)}</p>
-            </CardContent>
-          </Card>
-        );
-      })}
+      )} */}
+      <div className="grid grid-cols-12 gap-6">
+        <div className="col-span-5 flex flex-col gap-3">
+          {message.map((m, i) => {
+            return (
+              <Card className="bg-zinc-100 dark:bg-black" key={i}>
+                <CardHeader>
+                  <CardTitle>{m.id}</CardTitle>
+                  <CardDescription>Message Content</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p>{JSON.stringify(m)}</p>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+        <div className="col-span-7">{message.length > 0 && <Chat message={message} subscription={subscription} />}</div>
+      </div>
     </>
   );
 }

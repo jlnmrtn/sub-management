@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Settings2, Trash2 } from "lucide-react";
+import { Search, Settings2, Trash2 } from "lucide-react";
 import React from "react";
 import { revalidatePath } from "next/cache";
 import {
@@ -21,11 +21,11 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 
-
 import { DeleteFormButton } from "@/components/FormButton";
 import CreateSubForm from "@/components/CreateSubForm";
+import Link from "next/link";
 
-interface Subscription {
+export interface Subscription {
   id: string;
   type: string;
   description: string;
@@ -47,10 +47,6 @@ async function fetchSub() {
 }
 
 async function Subscriptions() {
-
-
-
-
   async function delSub(formData: FormData) {
     "use server";
 
@@ -70,7 +66,7 @@ async function Subscriptions() {
     <div className="min-h-screen items-center container mx-auto">
       <div className="flex justify-between ">
         <h1 className="text-2xl mb-10">Subscriptions List</h1>
-        <CreateSubForm  />
+        <CreateSubForm />
       </div>
 
       <div className="flex flex-col items-start gap-8 w-full ">
@@ -102,6 +98,11 @@ async function Subscriptions() {
                   </p>
                 </CardContent>
                 <div className="flex gap-3 mx-5">
+                  <Button variant={"secondary"} asChild>
+                    <Link href={`/notifications/${subscription.id}`}>
+                      <Search />
+                    </Link>
+                  </Button>
                   <Button>
                     <Settings2 />
                   </Button>
