@@ -1,11 +1,9 @@
 "use client";
 
 import { useFormStatus } from "react-dom";
-
 import React from "react";
 import { Button } from "./ui/button";
 import { Loader2 } from "lucide-react";
-
 
 export default function FormButton({ title }: { title: string }) {
   const { pending } = useFormStatus();
@@ -17,15 +15,13 @@ export default function FormButton({ title }: { title: string }) {
           <Loader2 className="animate-spin"></Loader2>
         </Button>
       ) : (
-       
-          <Button
-            type="submit"
-            variant={`${title === "Delete" ? "destructive" : "default"}`}
-          >
-            {" "}
-            {title}{" "}
-          </Button>
-       
+        <Button
+          type="submit"
+          variant={`${title === "Delete" ? "destructive" : "default"}`}
+        >
+          {" "}
+          {title}{" "}
+        </Button>
       )}
     </div>
   );

@@ -25,14 +25,13 @@ async function getSubDetails(subname: string | undefined) {
   }
 }
 
-
 export default async function Notifications({ params }: { params?: { subname: string | undefined } }) {
   const subDetails = await getSubDetails(params?.subname);
   
   return (
-    <main className="min-h-screen container mx-auto ">
-      <div className="flex flex-col items-center justify-between gap-8">
-        <h1 className="text-xl font-semibold border p-10  ">{subDetails.id == "urn:ngsi-ld:Subscription:nosub" ? "ERROR: UNABLE TO GET SUB" : subDetails.id}</h1>
+    <main className="container mx-auto ">
+      <div className="flex flex-col  gap-8 min-h-screen">
+        <div className="text-xl flex font-semibold border p-10 justify-center">{subDetails.id == "urn:ngsi-ld:Subscription:nosub" ? "ERROR: UNABLE TO GET SUB" : subDetails.id}</div>
         <LatestMessage subscription={subDetails} />
       </div>
     </main>

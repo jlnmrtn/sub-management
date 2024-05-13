@@ -6,10 +6,16 @@ import { Card } from "./ui/card";
 import { useEffect, useRef } from "react";
 import { Subscription } from "@/app/Subscriptions/page";
 
-export default function Chat({ message, subscription }: { message: IMessage[], subscription: Subscription | undefined }) {
+export default function Chat({
+  message,
+  subscription,
+}: {
+  message: IMessage[];
+  subscription: Subscription | undefined;
+}) {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  let JSONstrmessage: string
+  let JSONstrmessage: string = JSON.stringify(message);
   const JSONstrsubscription: string = JSON.stringify(subscription);
   const { messages, input, setInput, handleInputChange, handleSubmit } =
     useChat({
@@ -23,23 +29,22 @@ export default function Chat({ message, subscription }: { message: IMessage[], s
     });
 
   useEffect(() => {
-    JSONstrmessage = JSONstrmessage + JSON.stringify(message);
-    setInput(`Based on the following context which represents a subscription rule and related notifications. SUBSCRIPTIONS/RULES:${JSONstrsubscription} NOTIFICATIONS:${JSONstrmessage}.  Don't describe the subscription rule itself but take into context for the notifcations. Find out what is going on, anomaly, correlation. But don't describe the rule definition.` );
+    setInput(
+      `Based on the following context which represents a subscription rule and related notifications. SUBSCRIPTIONS/RULES:${JSONstrsubscription} NOTIFICATIONS:${JSONstrmessage}.  Don't describe the subscription rule itself but take into context for the notifcations. Find out what is going on, anomaly, correlation. But don't describe the rule definition.`
+    );
     buttonRef?.current?.click();
-  },[setInput,  message]);
-
+  }, [setInput, JSONstrmessage, JSONstrsubscription]);
 
   useEffect(() => {
     if (buttonRef.current != null) {
-        buttonRef.current.click();    
+      buttonRef.current.click();
       return;
     }
-   
   }, [input]);
 
   return (
     <div className="mx-auto w-full flex flex-col items-center">
-      <div className="flex flex-col gap-5" >
+      <div className="flex flex-col gap-5">
         {messages.map((m) => (
           <div key={m.id}>
             {m.role !== "user" && (
@@ -50,7 +55,7 @@ export default function Chat({ message, subscription }: { message: IMessage[], s
       </div>
 
       <form onSubmit={handleSubmit} hidden className="flex gap-10 mt-10">
-        <input value={input}  hidden={true} onChange={handleInputChange} />
+        <input value={input} hidden={true} onChange={handleInputChange} />
         <button type="submit" hidden ref={buttonRef}>
           Send
         </button>

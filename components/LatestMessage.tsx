@@ -25,26 +25,25 @@ export type IMessage = {
   id: string;
 };
 
-export default function LatestMessage({subscription}:{subscription: Subscription | undefined}) {
-  const [toggleChat, setToggleChat] = useState(true);
+export default function LatestMessage({
+  subscription,
+}: {
+  subscription: Subscription | undefined;
+}) {
+  // const [toggleChat, setToggleChat] = useState(true);
   const [message, setMessage] = useState<IMessage[]>([]);
-  let subname: string = "+"
+  let subname: string = "+";
 
-  console.log(subscription)
-
-  if(subscription) {
-    subname = subscription.id.split(":")[3]
+  if (subscription) {
+    subname = subscription.id.split(":")[3];
   }
-  
-  
+
   useEffect(() => {
-    
     const sub_topic = pubsub
       .subscribe({ topics: [`garnet/subscriptions/${subname}`] })
       .subscribe({
         next: (data) => {
           const notification = data as INotification;
-          console.log(notification);
           notification.data.map((d) =>
             setMessage((prevState) => [...prevState, d])
           );
@@ -56,31 +55,42 @@ export default function LatestMessage({subscription}:{subscription: Subscription
       sub_topic.unsubscribe();
       console.log("Unsubscribed to topic");
     };
-  }, []);
+  }, [subname]);
 
   return (
     <>
-      {/* {message.length > 0 && (
-        <Button onClick={() => setToggleChat(!toggleChat)}>Toggle Chat</Button>
-      )} */}
-      <div className="grid grid-cols-12 gap-6">
-        <div className="col-span-5 flex flex-col gap-3">
-          {message.map((m, i) => {
-            return (
-              <Card className="bg-zinc-100 dark:bg-black" key={i}>
-                <CardHeader>
-                  <CardTitle>{m.id}</CardTitle>
-                  <CardDescription>Message Content</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p>{JSON.stringify(m)}</p>
-                </CardContent>
-              </Card>
-            );
-          })}
+      {message.length == 0 && (
+        <div className="flex flex-col items-center justify-start flex-1 mt-60">
+          <div className="text-xl flex justify-center items-center">
+            Good news or bad news but no Notifications yet ;-)
+          </div>
         </div>
-        <div className="col-span-7">{message.length > 0 && <Chat message={message} subscription={subscription} />}</div>
-      </div>
+      )}
+
+      {message.length > 0 && (
+        <div className="grid grid-cols-12 gap-6">
+          <div className="col-span-5 flex flex-col gap-3">
+            {message.map((m, i) => {
+              return (
+                <Card className="bg-zinc-100 dark:bg-black" key={i}>
+                  <CardHeader>
+                    <CardTitle>{m.id}</CardTitle>
+                    <CardDescription>Message Content</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p>{JSON.stringify(m)}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+          <div className="col-span-7">
+            {message.length > 0 && (
+              <Chat message={message} subscription={subscription} />
+            )}
+          </div>
+        </div>
+      )}
     </>
   );
 }
