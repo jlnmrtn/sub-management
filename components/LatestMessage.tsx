@@ -43,6 +43,7 @@ export default function LatestMessage({
       .subscribe({ topics: [`garnet/subscriptions/${subname}`] })
       .subscribe({
         next: (data) => {
+          console.log(data)
           const notification = data as INotification;
           notification.data.map((d) =>
             setMessage((prevState) => [...prevState, d])

@@ -66,7 +66,7 @@ async function Subscriptions() {
   return (
     <div className="min-h-screen items-center container mx-auto">
       <div className="flex justify-between ">
-        <h1 className="text-2xl mb-10">Subscriptions List</h1>
+        <h1 className="text-2xl mb-10 w-full text-center font-semibold " >Subscriptions List:</h1>
         <CreateSubForm />
       </div>
 
@@ -87,10 +87,10 @@ async function Subscriptions() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className=" overflow-hidden border-x-2 flex-1">
-                  <p>Description: {subscription.description}</p>
+                  {subscription.description && <p>Description: {subscription.description}</p>}
                   <p>Entities: {JSON.stringify(subscription.entities)}</p>
-                  <p>Query: {JSON.stringify(subscription.q)}</p>
-                  <p>WatchedAttributes: {JSON.stringify(subscription.watchedattributes)}</p>
+                  {subscription.q && <p>Query: {JSON.stringify(subscription.q)}</p> }
+                  {subscription.watchedattributes &&  <p>WatchedAttributes: {JSON.stringify(subscription.watchedattributes)}</p> }
                   <p>Times Failed: {subscription.timesFailed}</p>
                   <p>Times Sent: {subscription.timesSent}</p>
                   <p>Status: {subscription.status}</p>

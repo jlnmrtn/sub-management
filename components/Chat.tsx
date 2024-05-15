@@ -30,7 +30,7 @@ export default function Chat({
 
   useEffect(() => {
     setInput(
-      `Based on the following context which represents a subscription rule and related notifications. SUBSCRIPTIONS/RULES:${JSONstrsubscription} NOTIFICATIONS:${JSONstrmessage}.  Don't describe the subscription rule itself but take into context for the notifcations. Find out what is going on, anomaly, correlation. But don't describe the rule definition.`
+      `Based on the following context which represents a subscription rule and related notifications. SUBSCRIPTIONS/RULES:${JSONstrsubscription} NOTIFICATIONS:${JSONstrmessage}.  Don't describe the subscription rule itself but take into context for the notifcations. Find out what is going on, anomaly, correlation. But don't describe the rule definition. Please Keep it synthetic in 70 words maximum!`
     );
     buttonRef?.current?.click();
   }, [setInput, JSONstrmessage, JSONstrsubscription]);

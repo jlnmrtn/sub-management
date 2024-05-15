@@ -31,7 +31,7 @@ export default async function Notifications({ params }: { params?: { subname: st
   return (
     <main className="container mx-auto ">
       <div className="flex flex-col  gap-8 min-h-screen">
-        <div className="text-xl flex font-semibold border p-10 justify-center">{subDetails.id == "urn:ngsi-ld:Subscription:nosub" ? "ERROR: UNABLE TO GET SUB" : subDetails.id}</div>
+        <div className="text-xl flex font-semibold border p-10 justify-center">{subDetails.id == "urn:ngsi-ld:Subscription:nosub" ? "ERROR: UNABLE TO GET SUB" : "Subscription Name: " + subDetails.id.split(":")[3]}</div>
         <LatestMessage subscription={subDetails} />
       </div>
     </main>
