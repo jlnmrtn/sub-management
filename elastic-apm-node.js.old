@@ -1,0 +1,5 @@
+// elastic-apm-node.js
+module.exports = {
+    serverUrl: 'https://obscorp-dec163.apm.us-east-1.aws.elastic.cloud:443',  // E.g. https://my-deployment-name.apm.us-west2.gcp.elastic-cloud.com
+    apiKey: 'bWVwdG9JOEJSbHZYTzhSUjVwRUY6Q0gtU2FBMmxTNVN1dTF4cjZ1Ullsdw=='
+  }

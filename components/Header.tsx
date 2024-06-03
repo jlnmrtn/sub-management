@@ -15,17 +15,17 @@ function Header() {
   }
   return (
     <header>
-      <div className="border p-10 bg-gray-100 dark:bg-black">
+      <div className="border   p-10 bg-gray-200 dark:bg-black shadow-xl">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center justify-center gap-6">
             <Image src={garnetIcon} alt="Garnet Icon" width="60"  />
-            <h1 className="font-semibold text-3xl">Garnet Management</h1>
+            <h1 className="font-semibold text-3xl">Notifications for Humans</h1>
           </div>
           <div className="flex justify-center items-center gap-8">
            
             <Link
               className="underline border p-5 rounded-xl bg-slate-100  dark:bg-black"
-              href="/history"
+              href="/History"
             >
               History
             </Link>

@@ -24,6 +24,7 @@ import {
 import { DeleteFormButton } from "@/components/FormButton";
 import CreateSubForm from "@/components/CreateSubForm";
 import Link from "next/link";
+export const dynamic = "force";
 
 export interface Subscription {
   id: string;
@@ -33,7 +34,7 @@ export interface Subscription {
   jsonldContext: string;
   entities?: string;
   q?: string;
-  watchedattributes?: string,
+  watchedattributes?: string;
   notification: string;
   timesFailed: number;
   timesSent: number;
@@ -44,7 +45,10 @@ async function fetchSub() {
     `${process.env.CONTEXT_BROKER_URL}/ngsi-ld/v1/subscriptions`
   );
   const subscriptions = await response.json();
-  return subscriptions.filter((s: Subscription) => s.id != "urn:ngsi-ld:Subscription:GarnetDataLakeSub-DoNotDelete" );
+  return subscriptions.filter(
+    (s: Subscription) =>
+      s.id != "urn:ngsi-ld:Subscription:GarnetDataLakeSub-DoNotDelete"
+  );
 }
 
 async function Subscriptions() {
@@ -66,7 +70,9 @@ async function Subscriptions() {
   return (
     <div className="min-h-screen items-center container mx-auto">
       <div className="flex justify-between ">
-        <h1 className="text-2xl mb-10 w-full text-center font-semibold " >Subscriptions List:</h1>
+        <h1 className="text-2xl mb-10 w-full text-center font-semibold ">
+          Subscriptions List:
+        </h1>
         <CreateSubForm />
       </div>
 
@@ -74,11 +80,11 @@ async function Subscriptions() {
         {subscriptions.map((subscription: Subscription) => {
           return (
             <Card
-              className="bg-zinc-100 dark:bg-black w-full py-4 "
+              className="bg-zinc-100 dark:bg-black w-full py-4 shadow-lg"
               key={subscription.id}
             >
               <div className="flex justify-start items-center">
-                <CardHeader className="flex flex-col justify-start text-sm  w-52  ">
+                <CardHeader className="flex flex-col justify-start text-sm  w-52">
                   <CardTitle className="text-base">
                     {subscription.id.split(":")[3]}
                   </CardTitle>
@@ -87,10 +93,19 @@ async function Subscriptions() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent className=" overflow-hidden border-x-2 flex-1">
-                  {subscription.description && <p>Description: {subscription.description}</p>}
+                  {subscription.description && (
+                    <p>Description: {subscription.description}</p>
+                  )}
                   <p>Entities: {JSON.stringify(subscription.entities)}</p>
-                  {subscription.q && <p>Query: {JSON.stringify(subscription.q)}</p> }
-                  {subscription.watchedattributes &&  <p>WatchedAttributes: {JSON.stringify(subscription.watchedattributes)}</p> }
+                  {subscription.q && (
+                    <p>Query: {JSON.stringify(subscription.q)}</p>
+                  )}
+                  {subscription.watchedattributes && (
+                    <p>
+                      WatchedAttributes:{" "}
+                      {JSON.stringify(subscription.watchedattributes)}
+                    </p>
+                  )}
                   <p>Times Failed: {subscription.timesFailed}</p>
                   <p>Times Sent: {subscription.timesSent}</p>
                   <p>Status: {subscription.status}</p>

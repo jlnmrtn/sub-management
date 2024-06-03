@@ -12,6 +12,8 @@ const backend = defineBackend({
 
 backend.auth.resources.authenticatedUserIamRole.addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName('AmazonBedrockFullAccess'))
 backend.auth.resources.authenticatedUserIamRole.addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName('AWSIoTFullAccess'))
+backend.auth.resources.authenticatedUserIamRole.addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName('AmazonAthenaFullAccess'))
+backend.auth.resources.authenticatedUserIamRole.addManagedPolicy(ManagedPolicy.fromAwsManagedPolicyName('AmazonS3FullAccess'))
 
 
 const { cfnIdentityPool } = backend.auth.resources.cfnResources;

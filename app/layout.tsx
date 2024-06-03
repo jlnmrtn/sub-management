@@ -25,23 +25,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <AmplifyProvider>
-            <div className="fixed z-30 w-full mt-3">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <AmplifyProvider>
+            <div className="fixed z-10 w-full mt-3">
               <Header />
             </div>
-            <div className="absolute mt-52 w-full">{children}</div>
-
+            <div className="bg-zinc-100 flex flex-col">
+              <div className="mt-52">{children}</div>
+            </div>
             <Toaster />
-            </AmplifyProvider>
-          </ThemeProvider>
-
+          </AmplifyProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

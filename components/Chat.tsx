@@ -43,18 +43,18 @@ export default function Chat({
   }, [input]);
 
   return (
-    <div className="mx-auto w-full flex flex-col items-center">
-      <div className="flex flex-col gap-5">
+    <div>
+      <div className="flex flex-col mt-0 gap-5">
         {messages.map((m) => (
           <div key={m.id}>
             {m.role !== "user" && (
-              <Card className="p-5 text-2xl">{m.content}</Card>
+              <Card className="p-5 text-2xl shadow-lg">{m.content}</Card>
             )}
           </div>
         ))}
       </div>
 
-      <form onSubmit={handleSubmit} hidden className="flex gap-10 mt-10">
+      <form onSubmit={handleSubmit} hidden>
         <input value={input} hidden={true} onChange={handleInputChange} />
         <button type="submit" hidden ref={buttonRef}>
           Send

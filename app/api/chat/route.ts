@@ -2,7 +2,7 @@ import {
   BedrockRuntimeClient,
   InvokeModelWithResponseStreamCommand,
 } from "@aws-sdk/client-bedrock-runtime";
-import { AWSBedrockAnthropicMessagesStream, AWSBedrockAnthropicStream, StreamingTextResponse } from "ai";
+import { AWSBedrockAnthropicMessagesStream, StreamingTextResponse } from "ai";
 import { experimental_buildAnthropicMessages, experimental_buildAnthropicPrompt } from "ai/prompts";
 import { runWithAmplifyServerContext } from "@/utils/amplifyServerUtils";
 import { cookies } from "next/headers";
@@ -17,9 +17,7 @@ export async function POST(req: Request) {
     operation: (contextSpec) => fetchAuthSession(contextSpec),
   });
 
-  const { messages, end } = await req.json();
-
-  console.log(experimental_buildAnthropicPrompt(messages))
+  const { messages } = await req.json();
 
   const bedrockClient = new BedrockRuntimeClient({
     region: "us-east-1",

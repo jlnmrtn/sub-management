@@ -8,12 +8,19 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+
 import { useState, useEffect } from "react";
 import { pubsub } from "../utils/pubsub";
 import Chat from "./Chat";
 import { Subscription } from "@/app/Subscriptions/page";
+import { Button } from "./ui/button";
 
-type INotification = {
+export type INotification = {
   id: string;
   message: string;
   subscriptionId: string;
@@ -32,6 +39,7 @@ export default function LatestMessage({
 }) {
   // const [toggleChat, setToggleChat] = useState(true);
   const [message, setMessage] = useState<IMessage[]>([]);
+  const [fullW, setFullW] = useState<Boolean>(true)
   let subname: string = "+";
 
   if (subscription) {
@@ -43,7 +51,6 @@ export default function LatestMessage({
       .subscribe({ topics: [`garnet/subscriptions/${subname}`] })
       .subscribe({
         next: (data) => {
-          console.log(data)
           const notification = data as INotification;
           notification.data.map((d) =>
             setMessage((prevState) => [...prevState, d])
@@ -71,25 +78,37 @@ export default function LatestMessage({
       {message.length > 0 && (
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-5 flex flex-col gap-3">
-            {message.map((m, i) => {
-              return (
-                <Card className="bg-zinc-100 dark:bg-black" key={i}>
-                  <CardHeader>
-                    <CardTitle>{m.id}</CardTitle>
-                    <CardDescription>Message Content</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p>{JSON.stringify(m)}</p>
-                  </CardContent>
-                </Card>
-              );
-            })}
+          <Collapsible>
+            <CollapsibleTrigger onClick={() => setFullW(!fullW)}>
+              <Button variant={"outline"}>
+              {fullW ? <p className="italic text-sm ">See Raw Notifications</p> :  <p className="italic text-sm ">Hide Raw Notifications</p>}
+              </Button>
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+              
+                {message.map((m, i) => {
+                  return (
+                    <Card className="bg-zinc-100 dark:bg-black" key={i}>
+                      <CardHeader>
+                        <CardTitle>{m.id}</CardTitle>
+                        <CardDescription>Notification Content</CardDescription>
+                      </CardHeader>
+                      <CardContent className="overflow-auto">
+                        <p>{JSON.stringify(m)}</p>
+                      </CardContent>
+                    </Card>
+                  );
+                })}
+             
+            </CollapsibleContent>
+          </Collapsible>
           </div>
-          <div className="col-span-7">
+          <div className={`${fullW ? "col-span-12" : "col-span-7"}`}>
             {message.length > 0 && (
               <Chat message={message} subscription={subscription} />
             )}
           </div>
+       
         </div>
       )}
     </>
