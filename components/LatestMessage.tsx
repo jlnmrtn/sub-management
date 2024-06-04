@@ -20,6 +20,8 @@ import Chat from "./Chat";
 import { Subscription } from "@/app/Subscriptions/page";
 import { Button } from "./ui/button";
 
+import Map from "./Map";
+
 export type INotification = {
   id: string;
   message: string;
@@ -30,6 +32,7 @@ export type INotification = {
 
 export type IMessage = {
   id: string;
+  location: { value: { coordinates: number[] } };
 };
 
 export default function LatestMessage({
@@ -77,7 +80,7 @@ export default function LatestMessage({
 
       {message.length > 0 && (
         <div className="grid grid-cols-12 gap-6">
-          <div className="col-span-5 flex flex-col gap-3">
+          <div className="col-span-12 flex flex-col gap-3">
             <Collapsible>
               <CollapsibleTrigger onClick={() => setFullW(!fullW)}>
                 <Button variant={"outline"} className="mb-6">
@@ -92,15 +95,24 @@ export default function LatestMessage({
                 <div className="flex flex-col gap-6">
                   {message.map((m, i) => {
                     return (
-                      <Card className="bg-zinc-100 dark:bg-black" key={i}>
+                      <Card className="bg-violet-100 dark:bg-black shadow-2xl border-black" key={i}>
                         <CardHeader>
                           <CardTitle>{m.id}</CardTitle>
                           <CardDescription>
                             Notification Content
                           </CardDescription>
                         </CardHeader>
-                        <CardContent className="overflow-auto">
-                          <p>{JSON.stringify(m)}</p>
+                        <CardContent className="">
+                          <div className="flex justify-between items-center gap-4">
+                            <div className="flex-1">
+                              <Map
+                                urn={m.id}
+                                lat={m.location.value.coordinates[1]}
+                                lon={m.location.value.coordinates[0]}
+                              />
+                            </div>
+                            <pre className="p-3 bg-slate-300 text-xs rounded-sm border-blue-300 shadow-xl">{JSON.stringify(m, null, 2)}</pre>
+                          </div>
                         </CardContent>
                       </Card>
                     );
@@ -109,7 +121,7 @@ export default function LatestMessage({
               </CollapsibleContent>
             </Collapsible>
           </div>
-          <div className={`${fullW ? "col-span-12" : "col-span-7"}`}>
+          <div className={`${fullW ? "col-span-12" : "hidden"}`}>
             {message.length > 0 && (
               <Chat message={message} subscription={subscription} />
             )}

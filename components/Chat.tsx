@@ -49,7 +49,7 @@ export default function Chat({
         {messages.toReversed().map((m) => (
           <div key={m.id}>
             {m.role !== "user" && (m.content.length > 0 ? (
-              <Card className="p-5 text-2xl shadow-lg">{m.content}   
+              <Card className="p-5 text-2xl shadow-lg bg-violet-100 dark:bg-black">{m.content}   
               </Card>
             ) : <Skeleton className="w-[100px] h-[20px] rounded-full" /> )}
           </div>

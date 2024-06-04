@@ -80,7 +80,7 @@ async function Subscriptions() {
         {subscriptions.map((subscription: Subscription) => {
           return (
             <Card
-              className="bg-zinc-100 dark:bg-black w-full py-4 shadow-lg"
+              className="bg-violet-100 dark:bg-black w-full py-4 shadow-lg"
               key={subscription.id}
             >
               <div className="flex justify-start items-center">
@@ -92,29 +92,44 @@ async function Subscriptions() {
                     {subscription.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent className=" overflow-hidden border-x-2 flex-1">
-                  {subscription.description && (
-                    <p>Description: {subscription.description}</p>
-                  )}
-                  <p>Entities: {JSON.stringify(subscription.entities)}</p>
-                  {subscription.q && (
-                    <p>Query: {JSON.stringify(subscription.q)}</p>
-                  )}
-                  {subscription.watchedattributes && (
-                    <p>
-                      WatchedAttributes:{" "}
-                      {JSON.stringify(subscription.watchedattributes)}
+                <CardContent className="overflow-hidden border-x-2 flex-1 flex">
+                  <div className="border border-x-2 flex-1 flex flex-col justify-between">
+                    {subscription.description && (
+                      <p>Description: {subscription.description}</p>
+                    )}
+
+                    <p>Times Failed: {subscription.timesFailed}</p>
+                    <p>Times Sent: {subscription.timesSent}</p>
+                    <p>Status: {subscription.status}</p>
+                  </div>
+                  <div className="border  flex-1 flex flex-col justify-between gap-3">
+                    <p className="flex items-center justify-start gap-12 ">
+                      <div > Entities: </div>
+                      <pre className="border bg-zinc-100 dark:bg-black p-1 text-xs flex-1">
+                        {JSON.stringify(subscription.entities, null, 2)}
+                      </pre>
                     </p>
-                  )}
-                  <p>Times Failed: {subscription.timesFailed}</p>
-                  <p>Times Sent: {subscription.timesSent}</p>
-                  <p>Status: {subscription.status}</p>
-                  <p>
-                    Notification:{" "}
-                    <span className="text-xs">
-                      {JSON.stringify(subscription.notification)}
-                    </span>
-                  </p>
+                    {subscription.q && (
+                      <p className="flex items-center justify-start gap-16" >
+                        <div > Query:</div>
+                        <pre className="border bg-zinc-100 dark:bg-black p-1 text-xs flex-1">
+                          {JSON.stringify(subscription.q, null, 2)}
+                        </pre>
+                      </p>
+                    )}
+                    {subscription.watchedattributes && (
+                      <p>
+                        WatchedAttributes:{" "}
+                        {JSON.stringify(subscription.watchedattributes)}
+                      </p>
+                    )}
+                    <p className="flex items-center justify-start gap-5">
+                      <div>Notification: </div>
+                      <pre className="text-xs p-1 border bg-zinc-100 dark:bg-black flex-1">
+                        {JSON.stringify(subscription.notification, null, 2)}
+                      </pre>
+                    </p>
+                  </div>
                 </CardContent>
                 <div className="flex gap-3 mx-5">
                   <Button variant={"secondary"} asChild>
