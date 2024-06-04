@@ -15,7 +15,7 @@ function Header() {
   }
   return (
     <header>
-      <div className="border   p-10 bg-gray-200 dark:bg-black shadow-xl">
+      <div className="border p-10 bg-gray-200 dark:bg-black shadow-xl">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center justify-center gap-6">
             <Image src={garnetIcon} alt="Garnet Icon" width="60"  />
@@ -24,13 +24,13 @@ function Header() {
           <div className="flex justify-center items-center gap-8">
            
             <Link
-              className="underline border p-5 rounded-xl bg-slate-100  dark:bg-black"
+              className="border p-3 rounded-xl  dark:bg-black shadow-2xl border-black bg-slate-400"
               href="/History"
             >
               History
             </Link>
             <Link
-              className="underline border p-5 rounded-xl bg-slate-100  dark:bg-black"
+              className=" border p-3 rounded-xl bg-slate-400  dark:bg-black shadow-2xl border-black"
               href="/Subscriptions"
             >
               Subscriptions

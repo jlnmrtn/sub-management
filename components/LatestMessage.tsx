@@ -39,7 +39,7 @@ export default function LatestMessage({
 }) {
   // const [toggleChat, setToggleChat] = useState(true);
   const [message, setMessage] = useState<IMessage[]>([]);
-  const [fullW, setFullW] = useState<Boolean>(true)
+  const [fullW, setFullW] = useState<Boolean>(true);
   let subname: string = "+";
 
   if (subscription) {
@@ -78,37 +78,42 @@ export default function LatestMessage({
       {message.length > 0 && (
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-5 flex flex-col gap-3">
-          <Collapsible>
-            <CollapsibleTrigger onClick={() => setFullW(!fullW)}>
-              <Button variant={"outline"}>
-              {fullW ? <p className="italic text-sm ">See Raw Notifications</p> :  <p className="italic text-sm ">Hide Raw Notifications</p>}
-              </Button>
-            </CollapsibleTrigger>
-            <CollapsibleContent>
-              
-                {message.map((m, i) => {
-                  return (
-                    <Card className="bg-zinc-100 dark:bg-black" key={i}>
-                      <CardHeader>
-                        <CardTitle>{m.id}</CardTitle>
-                        <CardDescription>Notification Content</CardDescription>
-                      </CardHeader>
-                      <CardContent className="overflow-auto">
-                        <p>{JSON.stringify(m)}</p>
-                      </CardContent>
-                    </Card>
-                  );
-                })}
-             
-            </CollapsibleContent>
-          </Collapsible>
+            <Collapsible>
+              <CollapsibleTrigger onClick={() => setFullW(!fullW)}>
+                <Button variant={"outline"} className="mb-6">
+                  {fullW ? (
+                    <p className="italic text-sm ">See Raw Notifications</p>
+                  ) : (
+                    <p className="italic text-sm ">Hide Raw Notifications</p>
+                  )}
+                </Button>
+              </CollapsibleTrigger>
+              <CollapsibleContent>
+                <div className="flex flex-col gap-6">
+                  {message.map((m, i) => {
+                    return (
+                      <Card className="bg-zinc-100 dark:bg-black" key={i}>
+                        <CardHeader>
+                          <CardTitle>{m.id}</CardTitle>
+                          <CardDescription>
+                            Notification Content
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent className="overflow-auto">
+                          <p>{JSON.stringify(m)}</p>
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
           </div>
           <div className={`${fullW ? "col-span-12" : "col-span-7"}`}>
             {message.length > 0 && (
               <Chat message={message} subscription={subscription} />
             )}
           </div>
-       
         </div>
       )}
     </>

@@ -35,7 +35,7 @@ export default function RootLayout({
             <div className="fixed z-10 w-full mt-3">
               <Header />
             </div>
-            <div className="bg-zinc-100 flex flex-col">
+            <div className="bg-zinc-100 dark:bg-black flex flex-col"> 
               <div className="mt-52">{children}</div>
             </div>
             <Toaster />
