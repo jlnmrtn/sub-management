@@ -61,7 +61,7 @@ function mapData(data: any) {
         
         WorkGroup: 'primary',
         ResultConfiguration : {
-          OutputLocation: 's3://garnet-datalake-us-east-1-852616170000-athena-results/'
+          OutputLocation: 's3://garnet-datalake-us-east-1-xxxxxxx-athena-results/'
         },
         ResultReuseConfiguration:{
           ResultReuseByAgeConfiguration: {

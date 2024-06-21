@@ -1,3 +1,9 @@
+### Work In progress
+
+# Prerequisites
+
+* AWS Account: Cognito, bedrock , and of course garnet installed: https://garnet-framework.dev/
+
 # Project Name
 
 This is a [Next.js](https://nextjs.org/) application that provides [brief description of your project's purpose and functionality].
@@ -65,17 +71,9 @@ npm run build
 
 2. Configure the deployment environment (e.g., set environment variables, configure hosting service)
 
-3. Deploy the application to your hosting service (e.g., Vercel, AWS Amplify)
+3. Deploy the application to your hosting service (e.g. AWS Amplify)
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
 
-## Contact (Optional)
-
-If you have any questions or suggestions, please feel free to contact the project maintainers at [contact email or other contact information].
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
