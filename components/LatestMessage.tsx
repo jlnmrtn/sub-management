@@ -20,7 +20,11 @@ import Chat from "./Chat";
 import { Subscription } from "@/app/Subscriptions/page";
 import { Button } from "./ui/button";
 
-import Map from "./Map";
+import dynamic from 'next/dynamic';
+
+const Map = dynamic(() => import('./Map'), {
+  ssr: false,
+});
 
 export type INotification = {
   id: string;
