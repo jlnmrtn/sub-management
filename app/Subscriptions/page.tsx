@@ -24,7 +24,7 @@ import {
 import { DeleteFormButton } from "@/components/FormButton";
 import CreateSubForm from "@/components/CreateSubForm";
 import Link from "next/link";
-export const dynamic = "force";
+export const dynamic = "force-dynamic";
 
 export interface Subscription {
   id: string;
